@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/principal.css">
+        <link rel="stylesheet" href="css/main.css">
+        <title>Juego del Ahorcado</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
+    
+    </head>
+    
+    <body>
+        <div class="contenedor-body">
+            <header>
+                <div class="tituloPagina">
+                    <h1 class="titulo">Juego del Ahorcado</h1>
+                    <h3 class="titulo">Alura Oracle ONE - Challenge 1</h3>
+                </div>
+                <div class="imagenLogo">
+                    <img src="img/LogoAlura.png" alt="Logo Alura" class="logoAlura">
+                </div>
+            </header>
+    
+            <main class="contenedor-main">
+                <section id="juego">
+                    <div id="contenedor-lienzo">
+                        <canvas id="lienzo" width="200" height="200"></canvas>
+                    </div>
+        
+                    <div id="contenedor-palabra-elegida" class="contenedor-ul">
+                        <ul id="palabra-elegida">
+                            <li>A</li>
+                            <li>M</li>
+                            <li>A</li>
+                            <li>R</li>
+                            <li>I</li>
+                            <li>L</li>
+                            <li>L</li>
+                            <li>O</li>
+                        </ul>
+                    </div>
+        
+                    <div>
+                        <ul id="letras-no-encontradas" class="contenedor-ul">
+                            <li>P</li>
+                            <li>A</li>
+                            <li>R</li>
+                            <li>J</li>
+                            <li>Z</li>
+                        </ul>
+                    </div>
+        
+                    <div class="contenedor-botones">
+                        <button id="nuevo-juego" class="botones-oscuros botones">Nuevo Juego</button>
+                        <button id="desistir" class="botones-claros botones">Desistir</button>        
+                    </div>
+                        
+                    
+                </section>
+        
+                <section id="guardado-palabra" class="invisible">
+                    <input type="text" id="ingrese-palabra" placeholder="Ingrese palabra">
+                    <span><img src="img/IconoInformacion.png" alt=""> Máximo de 8 letras</span>
+                    <div class="contenedor-botones">
+                        <button class="botones">Guardar Palabra</button>
+                        <button class="botones">Cancelar</button>      
+                    </div>
+                    
+                </section>
+            </main>
+            
+    
+            <dialog id="ventana-inicio" class="ventana">
+                <button id="ingresar-juego" class="botones-oscuros">Iniciar Juego</button>
+                <button id="guardar-palabra" class="botones-claros">Agregar Nueva Palabra</button>
+            </dialog>
+            
+            <footer>
+                <div>
+                    <a href="https://www.linkedin.com/in/mart%C3%ADn-alejandro-baz%C3%A1n-23711257" class="iconos"><img src="img/linkedin-in-brands.svg" alt="" width="20px"></a>
+                    <a href="https://github.com/MartinBzn/Encriptador-AluraOracleONE-Challenge1.git" class="iconos"><img src="img/github-brands.svg" alt="" width="20px"></a>
+                    <a href="mailto:martin.alejandro.bzn@gmail.com" class="iconos"><img src="img/envelope-solid.svg" alt="" width="20px"></a>
+                </div>
+    
+                <p>&copy; 2022 - Martín Alejandro Bazán</p>
+    
+            </footer>
+        </div>
+    </body>
+
+    <script src="js/mensajes.js"></script>
+    <script src="js/dibujo.js"></script>
+</html>
