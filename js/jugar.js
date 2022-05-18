@@ -67,7 +67,6 @@ function jugar(event){
     var letra = event.key;
     var caracterElegido = validarLetra(letra);
     mensajeSoloLetras.classList.remove("mensaje-solo-letras-visible");
-    mensajeSoloLetras.classList.add("invisible");
     if (caracterElegido.esLetra && !caracterElegido.estaEnLetrasIngresadas){
         buscarEnPalabra(letra.toUpperCase(),arrayPalabraElegida);
         letrasIngresadas.push(letra.toUpperCase());
