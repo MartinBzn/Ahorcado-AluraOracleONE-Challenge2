@@ -19,6 +19,29 @@ section{
     margin-left: 10%;
 }
 
+.mensaje-solo-letras-visible{
+    display: block;
+    height: 0;
+    color: red;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    animation-name: parpadeo;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 2;
+}
+
+@keyframes parpadeo {  
+    0% { color:transparent; }
+    20% { color:red; }
+    40% { color:transparent; }
+    60% { color:red; }
+    70% { color:transparent; }
+    100% { color:red; }
+}
+
 #contenedor-lienzo{
     /* border: 1px solid black; */
     margin: auto;
@@ -40,14 +63,14 @@ section{
 
 .contenedor-ul{
     width: 75%;
+    height: 20px;
     margin: 0 auto;
 }
 
 ul{
     display: flex;
     padding: 0;
-    /* margin: auto; */
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap;
      
 }
@@ -55,8 +78,8 @@ ul{
 li{
     display: inline;
     width: 1.5em;
-    margin: 0 1px;
-    color: blue;    
+    margin: 0 5px;
+    color: transparent;    
     text-align: center;
 }
 
@@ -65,8 +88,13 @@ li{
     font-weight: bold;
 }
 
+.palabra-elegida-acertada{
+    color: blue;
+}
+
 #letras-no-encontradas li{
-    text-decoration: line-through red;
+    /* text-decoration: line-through red; */
+    color: red;
 }
 
 .contenedor-botones{
@@ -83,7 +111,7 @@ li{
     }
 }
 
-@media screen and (min-width: 720px ){
+@media screen and (min-width: 620px ){
 
     #contenedor-lienzo{
         margin-top: 5%;

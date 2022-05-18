@@ -27,30 +27,20 @@
     
             <main class="contenedor-main">
                 <section id="juego">
+                    <span class="invisible" id="mensaje-solo-letras"></span>
                     <div id="contenedor-lienzo">
                         <canvas id="lienzo" width="200" height="200"></canvas>
                     </div>
         
                     <div id="contenedor-palabra-elegida" class="contenedor-ul">
                         <ul id="palabra-elegida">
-                            <li>A</li>
-                            <li>M</li>
-                            <li>A</li>
-                            <li>R</li>
-                            <li>I</li>
-                            <li>L</li>
-                            <li>L</li>
-                            <li>O</li>
+                            
                         </ul>
                     </div>
         
-                    <div>
-                        <ul id="letras-no-encontradas" class="contenedor-ul">
-                            <li>P</li>
-                            <li>A</li>
-                            <li>R</li>
-                            <li>J</li>
-                            <li>Z</li>
+                    <div class="contenedor-ul">
+                        <ul id="letras-no-encontradas">
+                           
                         </ul>
                     </div>
         
@@ -94,4 +84,6 @@
 
     <script src="js/mensajes.js"></script>
     <script src="js/dibujo.js"></script>
+    <script src="js/elegir-palabra.js"></script>
+    <script src="js/jugar.js"></script>
 </html>

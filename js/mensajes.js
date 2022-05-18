@@ -12,6 +12,7 @@ function inicio(){
         seccionGuardado.classList.add("invisible");
         seccionJuego.classList.remove("invisible");
         ventanaInicio.close();
+        window.addEventListener('keypress',jugar);
     })
 
     botonGuardar.addEventListener('click',function(){

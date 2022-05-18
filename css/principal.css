@@ -57,6 +57,7 @@ header{
 
 .invisible{
     display: none;
+    color: transparent;
 }
 
 .ventana::backdrop {
@@ -109,7 +110,7 @@ footer p{
 
 }
 
-@media screen and (min-width: 720px ){
+@media screen and (min-width: 620px ){
 
     #contenedor-lienzo{
         margin-top: 5%;
@@ -119,6 +120,10 @@ footer p{
         flex-direction: row;
         padding-left: 5%;
         margin-top: 5%;
+    }
+
+    .botones{
+        width: 40%;
     }
 
 }
