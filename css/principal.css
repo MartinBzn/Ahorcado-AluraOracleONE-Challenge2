@@ -22,19 +22,12 @@ header{
     background-color: rgba(0, 0, 0, 0.1);
     padding-left: 10%;
     justify-content: space-around;
-    height: 15vh;
+    margin-bottom:10px;
 }
 
 .contenedor-body{
-    height: 60vh;
+    height: 100%;
 }
-/* 
-.contenedor-main{
-    background-image:url(../img/HojaCarpeta.jpg);
-    background-size: 100%;
-    background-repeat:no-repeat;
-    height: 70vh;
-} */
 
 .tituloPagina{
     float: left;
@@ -49,10 +42,11 @@ header{
 }
 
 .botones{
-    width: 120px;
+    width: 150px;
     margin: 5px auto;
     padding: 5px;
     color: blue;
+    font-size: medium;
 }
 
 .invisible{
@@ -66,12 +60,50 @@ header{
 }
 
 .ventana {
-    border: 7px double rgb(18, 4, 93);
+    flex-direction: column;
+    border: 7px double goldenrod;
     border-radius: 10px;
     text-align: center;
     box-shadow: 10px 10px 10px -1px black;
-    background-color: rgb(40, 140, 173);
-    
+    background-color: rgb(114, 49, 2);
+    justify-content: center;
+}
+
+.ventana p, .ventana strong{
+    color: goldenrod;
+    text-shadow: none;
+}
+
+.botones-oscuros, .botones-claros{
+    display: block;
+    margin: 5px auto;
+    width: 90%;
+    height: 25px;
+    border-radius: 5px;
+    border-color: goldenrod;
+    font-size:medium;
+    text-shadow: none;
+    transition: background-color 0.5s linear;
+}
+
+.botones-oscuros{
+    background-color: rgb(52, 23, 2);
+    color: goldenrod;
+}
+
+.botones-oscuros:hover{
+    background-color: rgb(26, 11, 1);
+    cursor: pointer;
+}
+
+.botones-claros{
+    background-color: rgb(246, 207, 179);
+    color: rgb(26, 11, 1);
+}
+
+.botones-claros:hover{
+    background-color: rgb(251, 143, 66);
+    cursor: pointer;
 }
 
 footer{
@@ -79,7 +111,7 @@ footer{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 15vh;
+    margin-top:10px;
 }
 
 .iconos{
@@ -111,16 +143,6 @@ footer p{
 }
 
 @media screen and (min-width: 620px ){
-
-    #contenedor-lienzo{
-        margin-top: 5%;
-    }
-
-    .contenedor-botones{
-        flex-direction: row;
-        padding-left: 5%;
-        margin-top: 5%;
-    }
 
     .botones{
         width: 40%;

@@ -3,13 +3,12 @@ var lapiz = miLienzo.getContext("2d");
 lapiz.strokeStyle="red";
 lapiz.lineWidth = 3;
 
-function esperaTiempo(miliSegundos){
-    var tiempoInicio = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-        if ((new Date().getTime() - tiempoInicio) > miliSegundos) {
-            break;
-        }
-    }
+function limpiarDibujo(miLienzo,lapiz){
+    miLienzo = document.getElementById("lienzo"); 
+    lapiz = miLienzo.getContext("2d");
+    lapiz.clearRect(0,0,200,200);
+    lapiz.strokeStyle="red";
+    lapiz.lineWidth = 3;
 }
 
 function dibujarLinea(xi,yi,xf,yf){

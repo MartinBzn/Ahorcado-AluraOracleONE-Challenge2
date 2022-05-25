@@ -1,14 +1,38 @@
-var arrayPalabras = ['HOLA','MUNDO','AHORCADO','ALURA','PALABRA','CODIGO','ORACLE','FIGMA','TRELLO','PROGRAMA'];
 var ulPalabraElegida = document.getElementById('palabra-elegida');
 
-function elegirPalabra(array){
-    return array[Math.floor(Math.random()*array.length)];    
+function elegirPalabra(arrayPalabras,arrayPalabrasYaElegidas){
+    var detener = false;
+    var palabraDelArray = '';
+    if(arrayPalabras.length == arrayPalabrasYaElegidas.length){
+        arrayPalabrasYaElegidas.length = 0;
+    }
+    while (!detener){
+        palabraDelArray = arrayPalabras[Math.floor(Math.random()*arrayPalabras.length)];
+        if(!arrayPalabrasYaElegidas.includes(palabraDelArray)){
+            detener = true;
+            arrayPalabrasYaElegidas.push(palabraDelArray);
+            return palabraDelArray;
+        }
+    }   
+}
+
+function limpiarUlPalabraElegida(){
+    ulPalabraElegida.innerHTML="";
+}
+
+function mostrarLetrasNoAcertadas(){
+    var liLetrasPalabraElegida = document.getElementsByClassName("letra-palabra-elegida");
+    for (var i = 0;i < liLetrasPalabraElegida.length;i++){
+        if (!liLetrasPalabraElegida[i].classList.contains("palabra-elegida-acertada")){
+            liLetrasPalabraElegida[i].classList.add("palabra-elegida-no-acertada");
+        }
+    }
 }
 
 function ponerPalabra(palabraElegida) {
 
     var contador = 0;
-    var contenido = '';
+    var contenido = '';    
     
     for(var letra of palabraElegida){
         contador +=1;
@@ -17,7 +41,8 @@ function ponerPalabra(palabraElegida) {
     };
 }
 
-
-
-var palabraElegida = elegirPalabra(arrayPalabras);
-ponerPalabra(palabraElegida);
+function seleccionarPalabra(arrayPalabras,arrayPalabrasYaElegidas){
+    var palabraElegida = elegirPalabra(arrayPalabras,arrayPalabrasYaElegidas);
+    limpiarUlPalabraElegida();
+    ponerPalabra(palabraElegida);
+}

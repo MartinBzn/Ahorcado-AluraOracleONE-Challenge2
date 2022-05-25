@@ -6,17 +6,57 @@
 
 main{
     padding: 10px 0;
+    height: 600px;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .contenedor-main{
     background-image:url(../img/HojaCarpeta.jpg);
     background-size: 100%;
     background-repeat:no-repeat;
-    height: 70vh;
 }
 
 section{
     margin-left: 10%;
+}
+
+#guardado-palabra{
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10%;
+    margin-left: 25%;
+    width: 60%;
+    height: 80%;
+    max-height: 360px;
+}
+
+#ingrese-palabra{
+    width: 90%;
+    height: 40%;
+    margin: 5px auto 1px;
+    text-align: center;
+    text-indent: 0%;
+    font-size: 125%;
+    resize: none;
+    padding-top: 10px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+
+#contenedor-maximo{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 16px;
+    margin-top: 5px;
+    height: 16px;
+}
+
+#contenedor-maximo img {
+    margin-right: 5px;
 }
 
 .mensaje-solo-letras-visible{
@@ -28,27 +68,52 @@ section{
     font-style: italic;
     text-align: center;
     animation-name: parpadeo;
-    animation-duration: 1s;
+    animation-duration: 2s;
     animation-timing-function: linear;
-    animation-iteration-count: 2;
+    /* animation-iteration-count: 2; */
 }
 
 @keyframes parpadeo {  
     0% { color:transparent; }
-    20% { color:red; }
+    10% { color:red; }
+    20% { color:transparent; }
+    30% { color:red; }
     40% { color:transparent; }
-    60% { color:red; }
-    70% { color:transparent; }
-    100% { color:red; }
+    50% { color:red; }
+    60% { color:transparent; }
+    70% { color:red; }
+    80% { color:transparent; }
+    90% { color:red; }
+    100% { color:transparent; }
 }
 
 #contenedor-lienzo{
     /* border: 1px solid black; */
+    
     margin: auto;
     width: 80%;
     margin-top: 15%;
     margin-bottom: 5%;
 }
+
+canvas{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.contenedor-lienzo-tiembla{
+    animation-name: tiembla;
+    animation-duration: 0.01s;
+    animation-timing-function: linear;
+    animation-iteration-count: 100;
+    
+}
+
+@keyframes tiembla{
+    0%  {transform:rotateZ(-5deg); }
+    50% {transform:rotateZ( 0deg); }
+    100%  {transform:rotateZ(+5deg); }
+    
+  }
 
 #lienzo{
     /* border: 1px solid black; */
@@ -71,7 +136,7 @@ ul{
     display: flex;
     padding: 0;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap:nowrap;
      
 }
 
@@ -92,15 +157,41 @@ li{
     color: blue;
 }
 
+.palabra-elegida-no-acertada{
+    color: rgb(83, 203, 83);
+}
+
 #letras-no-encontradas li{
     /* text-decoration: line-through red; */
     color: red;
 }
 
+#teclado-virtual {
+    width: 280px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.boton-letra {
+    width: 26px;
+    height: 30px;
+    margin: 2px;
+    color: blue;
+    background: whitesmoke;
+    border: 1px solid blue;
+    border-radius: 5px;
+}
+
 .contenedor-botones{
     display: flex;
     flex-direction: column;
-    padding: 5px;
+}
+
+.invisible{
+    display: none;
+    color: transparent;
+    visibility:hidden;
 }
 
 @media screen and (min-width: 1024px ){
@@ -115,12 +206,16 @@ li{
 
     #contenedor-lienzo{
         margin-top: 5%;
+    }    
+
+    .contenedor-botones{       
+        margin-left: 10%;
+        flex-direction: row;
     }
 
-    .contenedor-botones{
-        flex-direction: row;
-        padding-left: 5%;
-        margin-top: 5%;
+    #guardado-palabra{
+        height: 360px;
+        margin-top: 90px;
     }
 
 }

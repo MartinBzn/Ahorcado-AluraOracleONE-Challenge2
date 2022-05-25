@@ -13,7 +13,7 @@
     
     </head>
     
-    <body>
+    <body onload="inicio(true)">
         <div class="contenedor-body">
             <header>
                 <div class="tituloPagina">
@@ -26,7 +26,7 @@
             </header>
     
             <main class="contenedor-main">
-                <section id="juego">
+                <section id="juego" class="invisible">
                     <span class="invisible" id="mensaje-solo-letras"></span>
                     <div id="contenedor-lienzo">
                         <canvas id="lienzo" width="200" height="200"></canvas>
@@ -43,21 +43,28 @@
                            
                         </ul>
                     </div>
+
+                    <div id="teclado-virtual">
+
+                    </div>
         
                     <div class="contenedor-botones">
-                        <button id="nuevo-juego" class="botones-oscuros botones">Nuevo Juego</button>
-                        <button id="desistir" class="botones-claros botones">Desistir</button>        
+                        <button id="nuevo-juego" class="botones" >Nuevo Juego</button>
+                        <button id="desistir" class="botones">Desistir</button>        
                     </div>
                         
                     
                 </section>
         
                 <section id="guardado-palabra" class="invisible">
-                    <input type="text" id="ingrese-palabra" placeholder="Ingrese palabra">
-                    <span><img src="img/IconoInformacion.png" alt=""> Máximo de 8 letras</span>
+                    <textarea id="ingrese-palabra" placeholder="Ingrese palabra" maxlength="8"></textarea>
+                    <div id="contenedor-maximo">
+                        <img src="img/IconoInformacion.png" alt="">
+                        <span>Máximo de 8 letras</span>
+                    </div>
                     <div class="contenedor-botones">
-                        <button class="botones">Guardar Palabra</button>
-                        <button class="botones">Cancelar</button>      
+                        <button id="agregar-palabra" class="botones">Guardar Palabra</button>
+                        <button id="cancelar-agregar-palabra" class="botones">Cancelar</button>      
                     </div>
                     
                 </section>
@@ -65,8 +72,36 @@
             
     
             <dialog id="ventana-inicio" class="ventana">
-                <button id="ingresar-juego" class="botones-oscuros">Iniciar Juego</button>
+                <p>Elija una de las siguientes opciones</p>                
+                <button id="ingresar-juego" class="botones-oscuros" >Iniciar Juego</button>
                 <button id="guardar-palabra" class="botones-claros">Agregar Nueva Palabra</button>
+            </dialog>
+
+            <dialog id="ventana-victoria" class="ventana">
+                <p>¡¡¡En horabuena!!! Has acertado la palabra <strong id="palabra-victoria"></strong></p>
+                <button id="aceptar-victoria" class="botones-oscuros">Aceptar</button>
+            </dialog>
+
+            <dialog id="ventana-perdio" class="ventana">
+                <p>Game Over</p>
+                <button id="aceptar-derrota" class="botones-oscuros">Aceptar</button>
+            </dialog>
+
+            <dialog id="ventana-reinicio" class="ventana">
+                <p>¿Esta seguro que desea reiniciar el juego?</p>
+                <button id="aceptar-reinicio" class="botones-oscuros">Aceptar</button>
+                <button id="cancelar-reinicio" class="botones-claros">Cancelar</button>
+            </dialog>
+
+            <dialog id="ventana-desistir" class="ventana">
+                <p>¿Esta seguro que desea terminar el juego?</p>
+                <button id="aceptar-desistir" class="botones-oscuros">Aceptar</button>
+                <button id="cancelar-desistir" class="botones-claros">Cancelar</button>
+            </dialog>
+
+            <dialog id="ventana-verificar-palabra" class="ventana">
+                <p id="msj-verificar-palabra"></p>
+                <button id="aceptar-verificar" class="botones-oscuros">Aceptar</button>
             </dialog>
             
             <footer>
@@ -82,8 +117,14 @@
         </div>
     </body>
 
-    <script src="js/mensajes.js"></script>
+    
+   
     <script src="js/dibujo.js"></script>
     <script src="js/elegir-palabra.js"></script>
+    <script src="js/guardar.js"></script>
     <script src="js/jugar.js"></script>
+    <script src="js/mensajes.js"></script>
+    <script src="js/principal.js"></script>
+   
+    
 </html>

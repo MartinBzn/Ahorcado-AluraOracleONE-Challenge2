@@ -1,26 +1,78 @@
-var ventanaInicio = document.getElementById("ventana-inicio");
-var seccionJuego = document.getElementById("juego");
-var seccionGuardado = document.getElementById("guardado-palabra");
-var botonInicio = document.getElementById("ingresar-juego");
-var botonGuardar = document.getElementById("guardar-palabra");
+var ventanaVictoria = document.getElementById("ventana-victoria");
+var palabraVictoria = document.getElementById("palabra-victoria");
+var botonVictoria = document.getElementById("aceptar-victoria");
+var ventanaDerrota = document.getElementById("ventana-perdio");
+var botonDerrota = document.getElementById("aceptar-derrota");
+var ventanaReinicio = document.getElementById("ventana-reinicio");
+var botonAceptarReinicio = document.getElementById("aceptar-reinicio");
+var botonCancelarReinicio = document.getElementById("cancelar-reinicio");
+var ventanaDesistir = document.getElementById("ventana-desistir");
+var botonAceptarDesistir = document.getElementById("aceptar-desistir");
+var botonCancelarDesistir = document.getElementById("cancelar-desistir");
+var ventanaVerificarPalabra = document.getElementById("ventana-verificar-palabra");
+var mensajeVerificarPalabra = document.getElementById("msj-verificar-palabra");
+var botonAceptarVerificar = document.getElementById("aceptar-verificar");
+var juegoTerminado = false; 
 
-function inicio(){
-
-    ventanaInicio.showModal();
-
-    botonInicio.addEventListener('click',function(){
-        seccionGuardado.classList.add("invisible");
-        seccionJuego.classList.remove("invisible");
-        ventanaInicio.close();
-        window.addEventListener('keypress',jugar);
-    })
-
-    botonGuardar.addEventListener('click',function(){
-        seccionGuardado.classList.remove("invisible");
-        seccionJuego.classList.add("invisible");
-        ventanaInicio.close();
-    })
-    
+function msjErrorSeleccion(elemento,msj){
+    elemento.innerHTML=msj;
+    elemento.classList.add("mensaje-solo-letras-visible");
+    elemento.classList.remove("invisible");
+    setTimeout(()=>{
+                        elemento.classList.remove("mensaje-solo-letras-visible");
+                        elemento.classList.add("invisible");
+                    },2000);
 }
 
-inicio();
+function verMensajePerdio(){
+    var divCanvas = document.getElementById("contenedor-lienzo");
+    juegoTerminado = true;
+    divCanvas.classList.add("contenedor-lienzo-tiembla");
+    setTimeout(()=>{divCanvas.classList.remove("contenedor-lienzo.tiembla");},1000);
+        mostrarLetrasNoAcertadas();
+        ventanaDerrota.showModal();
+        botonDerrota.addEventListener('click',function(){
+        ventanaDerrota.close();
+        });
+}
+
+function verMensajeVictoria(palabra=""){
+    juegoTerminado = true;
+    palabraVictoria.innerHTML=palabra.toUpperCase();
+    ventanaVictoria.showModal();
+    botonVictoria.addEventListener('click',function(){
+        ventanaVictoria.close();
+    })
+}
+
+function verMensajeReinicio(){
+    if(!juegoTerminado){
+        juegoTerminado = false;
+        ventanaReinicio.showModal();
+        botonAceptarReinicio.addEventListener('click',function(){
+            jugar(arrayPalabras,arrayPalabrasYaElegidas);
+            ventanaReinicio.close();
+        });
+        botonCancelarReinicio.addEventListener('click',function(){ventanaReinicio.close();});
+    }else{
+        jugar(arrayPalabras,arrayPalabrasYaElegidas);
+    }
+}
+
+function verMensajeDesistir(){
+    juegoTerminado = false;
+    ventanaDesistir.showModal();
+    botonAceptarDesistir.addEventListener('click',function(){
+        inicio(true);
+        ventanaDesistir.close();
+    });
+    botonCancelarDesistir.addEventListener('click',function(){ventanaDesistir.close();});
+}
+
+function verMensajeVerificarPalabra(mensaje){
+    mensajeVerificarPalabra.innerHTML = mensaje;
+    ventanaVerificarPalabra.showModal();
+    botonAceptarVerificar.addEventListener('click',function(){
+        ventanaVerificarPalabra.close();        
+    })
+}
