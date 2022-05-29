@@ -1,6 +1,7 @@
 var ventanaInicio = document.getElementById("ventana-inicio");
 var botonInicio = document.getElementById("ingresar-juego");
 var botonGuardar = document.getElementById("guardar-palabra");
+var seccionMenuPrincipal = document.getElementById("menu-principal");
 var seccionJuego = document.getElementById("juego");
 var botonNuevoJuego = document.getElementById("nuevo-juego");
 var botonDesistir = document.getElementById("desistir");
@@ -25,9 +26,9 @@ function insertarTeclado(){
         
         letraContenida = String.fromCodePoint(i)
         if (letraContenida == 'O'){
-            contenidoHTML += '<button id="botonNN" class = "boton-letra">Ñ</button>'
+            contenidoHTML += '<button type="button" id="botonNN" class = "boton-letra" onclick="letraDesdeBoton(241)">Ñ</button>'
         }
-        boton = `<button id="boton${letraContenida}" class = "boton-letra">${letraContenida}</button>`
+        boton = `<button id="boton${letraContenida}" type="button" class = "boton-letra" onclick="letraDesdeBoton(${i})">${letraContenida}</button>`
         contenidoHTML += boton;
     };
     tecladoVirtual.innerHTML = contenidoHTML;
@@ -43,27 +44,27 @@ function limpiar(){
     letrasIngresadas=[];
 }
 
+function eligioJuego(){
+    seccionMenuPrincipal.classList.add("invisible");
+    seccionGuardado.classList.add("invisible");
+    seccionJuego.classList.remove("invisible");
+    botonNuevoJuego.addEventListener('click',verMensajeReinicio);
+    botonDesistir.addEventListener('click',verMensajeDesistir);
+    jugar(arrayPalabras,arrayPalabrasYaElegidas);
+}
+
+function eligioGuardado(){
+    seccionMenuPrincipal.classList.add("invisible");
+    seccionGuardado.classList.remove("invisible");
+    seccionJuego.classList.add("invisible");
+    agregarPalabra(arrayPalabras);
+}
+
 function inicio(conMsjInicio){
+    
     limpiar();
     insertarTeclado();    
-    if(conMsjInicio){
-        
-        mostrarVentana(ventanaInicio);
+    botonInicio.addEventListener('click',eligioJuego);
+    botonGuardar.addEventListener('click',eligioGuardado);
 
-        botonInicio.addEventListener('click',function(){
-            seccionGuardado.classList.add("invisible");
-            seccionJuego.classList.remove("invisible");
-            ventanaInicio.close();
-            botonNuevoJuego.addEventListener('click',function(){verMensajeReinicio()});
-            botonDesistir.addEventListener('click',function(){verMensajeDesistir()});
-            jugar(arrayPalabras,arrayPalabrasYaElegidas);            
-        })
-
-        botonGuardar.addEventListener('click',function(){
-            seccionGuardado.classList.remove("invisible");
-            seccionJuego.classList.add("invisible");
-            ventanaInicio.close();
-            agregarPalabra(arrayPalabras);
-        })
-    }
-}
+};

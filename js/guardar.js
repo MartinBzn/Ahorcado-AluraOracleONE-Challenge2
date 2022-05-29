@@ -26,16 +26,23 @@ function verificarPalabra(palabra){
     return respuesta;
 }
 
+function eligioAgregarPalabra(){
+    var palabra = palabraSeleccionada.value.toUpperCase();
+    if (verificarPalabra(palabra)){
+        arrayPalabras.push(palabra);
+        verMensajeVerificarPalabra(`¡¡¡La palabra ${palabra} se agregó al juego!!!.`);
+        palabraSeleccionada.innerText = "";
+    }
+}
+
+function eligioCancelarAgregarPalabra(){
+    seccionGuardado.classList.add('invisible');
+    seccionMenuPrincipal.classList.remove('invisible');
+}
+
 function agregarPalabra(arrayPalabras){
-    palabraSeleccionada.focus();
-    botonAgregarPalabra.addEventListener('click',function(){
-        var palabra = palabraSeleccionada.value.toUpperCase();
-        if (verificarPalabra(palabra)){
-            arrayPalabras.push(palabra);
-            verMensajeVerificarPalabra(`¡¡¡La palabra ${palabra} se agregó al juego!!!.`);
-            palabraSeleccionada.innerText = "";
-        }
-    });
-    botonCancelarAgregarPalabra.addEventListener('click',()=>{inicio(true)});
+    // palabraSeleccionada.focus();
+    botonAgregarPalabra.addEventListener('click',eligioAgregarPalabra);
+    botonCancelarAgregarPalabra.addEventListener('click',eligioCancelarAgregarPalabra);
 
 }

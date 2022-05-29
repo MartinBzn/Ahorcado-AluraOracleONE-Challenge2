@@ -20,7 +20,20 @@ main{
 }
 
 section{
-    margin-left: 10%;
+    margin-left: 15%;
+}
+
+#menu-principal{
+    width: 70%;
+    height: 50%;
+    flex-direction: column;
+    margin-left: 20%;
+}
+
+#menu-principal p{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 40px;
 }
 
 #guardado-palabra{
@@ -178,9 +191,16 @@ li{
     height: 30px;
     margin: 2px;
     color: blue;
-    background: whitesmoke;
+    background-color: whitesmoke;
+    background-image: url(../img/fondoResaltador.png);
+    background-size: 20px 70px;
+    background-position:center;   
     border: 1px solid blue;
     border-radius: 5px;
+}
+
+.boton-letra:hover{
+    background-color: rgba(128, 128, 128, 0.5);
 }
 
 .contenedor-botones{
@@ -209,7 +229,7 @@ li{
     }    
 
     .contenedor-botones{       
-        margin-left: 10%;
+        /* margin-left: 10%; */
         flex-direction: row;
     }
 

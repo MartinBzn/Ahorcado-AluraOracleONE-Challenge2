@@ -24,49 +24,69 @@ function msjErrorSeleccion(elemento,msj){
                     },2000);
 }
 
+function aceptarDerrota(){
+    ventanaDerrota.close();
+    botonNuevoJuego.addEventListener('click',verMensajeReinicio);
+    botonDesistir.addEventListener('click',verMensajeDesistir);
+
+}
+
 function verMensajePerdio(){
     var divCanvas = document.getElementById("contenedor-lienzo");
     juegoTerminado = true;
     divCanvas.classList.add("contenedor-lienzo-tiembla");
     setTimeout(()=>{divCanvas.classList.remove("contenedor-lienzo.tiembla");},1000);
-        mostrarLetrasNoAcertadas();
-        ventanaDerrota.showModal();
-        botonDerrota.addEventListener('click',function(){
-        ventanaDerrota.close();
-        });
+    mostrarLetrasNoAcertadas();
+    ventanaDerrota.showModal();
+    botonDerrota.addEventListener('click',aceptarDerrota);
+}
+
+function aceptarVictoria(){
+    ventanaVictoria.close();
+    limpiar();
+    seleccionarPalabra(arrayPalabras,arrayPalabrasYaElegidas);
 }
 
 function verMensajeVictoria(palabra=""){
     juegoTerminado = true;
     palabraVictoria.innerHTML=palabra.toUpperCase();
-    ventanaVictoria.showModal();
-    botonVictoria.addEventListener('click',function(){
-        ventanaVictoria.close();
-    })
+    setTimeout(()=>{ventanaVictoria.showModal();},500);
+    botonVictoria.addEventListener('click',aceptarVictoria)
+}
+
+function aceptoReinicio(){
+    ventanaReinicio.close();
+    jugar(arrayPalabras,arrayPalabrasYaElegidas);
+    
 }
 
 function verMensajeReinicio(){
     if(!juegoTerminado){
-        juegoTerminado = false;
         ventanaReinicio.showModal();
-        botonAceptarReinicio.addEventListener('click',function(){
-            jugar(arrayPalabras,arrayPalabrasYaElegidas);
-            ventanaReinicio.close();
-        });
+        botonAceptarReinicio.addEventListener('click',aceptoReinicio);
         botonCancelarReinicio.addEventListener('click',function(){ventanaReinicio.close();});
     }else{
         jugar(arrayPalabras,arrayPalabrasYaElegidas);
-    }
+    };
+};
+
+function cancelaDesistir(){
+    ventanaDesistir.close();
+}
+
+function aceptaDesistir(){
+    consMsjInicio = true;
+    ventanaDesistir.close();
+    limpiar();
+    seccionJuego.classList.add('invisible');
+    seccionMenuPrincipal.classList.remove('invisible');
 }
 
 function verMensajeDesistir(){
     juegoTerminado = false;
     ventanaDesistir.showModal();
-    botonAceptarDesistir.addEventListener('click',function(){
-        inicio(true);
-        ventanaDesistir.close();
-    });
-    botonCancelarDesistir.addEventListener('click',function(){ventanaDesistir.close();});
+    botonAceptarDesistir.addEventListener('click',aceptaDesistir);
+    botonCancelarDesistir.addEventListener('click',cancelaDesistir);
 }
 
 function verMensajeVerificarPalabra(mensaje){

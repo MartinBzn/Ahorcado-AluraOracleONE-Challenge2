@@ -94,10 +94,7 @@ function leerLetra(elEvento){
     return elEvento.key;
 }
 
-function alPresionarTecla(e){
-    var arrayPalabraElegida = traerPalabraElegida(liLetras);
-    var letra = leerLetra(e);
-    
+function letraSeleccionada(letra,arrayPalabraElegida){
     var caracterElegido = validarLetra(letra);
     if (caracterElegido.esLetra && !caracterElegido.estaEnLetrasIngresadas){
         buscarEnPalabra(letra.toUpperCase(),arrayPalabraElegida);
@@ -113,8 +110,21 @@ function alPresionarTecla(e){
 
 }
 
+function letraDesdeBoton(codigoLetra){
+    var arrayPalabraElegida = traerPalabraElegida(liLetras);
+    var letra = String.fromCharCode(codigoLetra);
+    letraSeleccionada(letra,arrayPalabraElegida);
+}
+
+function alPresionarTecla(e){
+    var arrayPalabraElegida = traerPalabraElegida(liLetras);
+    var letra = leerLetra(e);
+    letraSeleccionada(letra,arrayPalabraElegida);    
+}
+
 function jugar(arrayPalabras,arrayPalabrasYaElegidas){
     limpiarJugar();
+    juegoTerminado = false;
     seleccionarPalabra(arrayPalabras,arrayPalabrasYaElegidas);
     document.addEventListener('keypress',alPresionarTecla);
 }

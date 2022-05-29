@@ -26,6 +26,16 @@
             </header>
     
             <main class="contenedor-main">
+                
+                <section id="menu-principal">
+                    <p>Elija una de las siguientes opciones</p>
+                    <div class="contenedor-botones">
+                        <button id="ingresar-juego" class="botones" >Iniciar Juego</button>
+                        <button id="guardar-palabra" class="botones">Agregar Nueva Palabra</button>
+                    </div>                
+                    
+                </section>
+
                 <section id="juego" class="invisible">
                     <span class="invisible" id="mensaje-solo-letras"></span>
                     <div id="contenedor-lienzo">
@@ -70,13 +80,6 @@
                 </section>
             </main>
             
-    
-            <dialog id="ventana-inicio" class="ventana">
-                <p>Elija una de las siguientes opciones</p>                
-                <button id="ingresar-juego" class="botones-oscuros" >Iniciar Juego</button>
-                <button id="guardar-palabra" class="botones-claros">Agregar Nueva Palabra</button>
-            </dialog>
-
             <dialog id="ventana-victoria" class="ventana">
                 <p>¡¡¡En horabuena!!! Has acertado la palabra <strong id="palabra-victoria"></strong></p>
                 <button id="aceptar-victoria" class="botones-oscuros">Aceptar</button>
