@@ -35,7 +35,7 @@ function verMensajePerdio(){
     var divCanvas = document.getElementById("contenedor-lienzo");
     juegoTerminado = true;
     divCanvas.classList.add("contenedor-lienzo-tiembla");
-    setTimeout(()=>{divCanvas.classList.remove("contenedor-lienzo.tiembla");},1000);
+    setTimeout(()=>{divCanvas.classList.remove("contenedor-lienzo-tiembla");},1000);
     mostrarLetrasNoAcertadas();
     ventanaDerrota.showModal();
     botonDerrota.addEventListener('click',aceptarDerrota);

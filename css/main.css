@@ -1,22 +1,22 @@
 *{
     font-family: 'Gochi Hand', cursive;
-    color:#101083;;
+    color:blue;
     text-shadow: 5px 5px 10px white;
 }
 
 main{
-    padding: 10px 0;
-    height: 600px;
+    /* padding: 10px 0; */
+    height: 480px;
     display: flex;
     align-content: center;
     flex-direction: column;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 }
 
 .contenedor-main{
     background-image:url(../img/HojaCarpeta.jpg);
     background-size: 100%;
-    background-repeat:no-repeat;
+    background-repeat:round;
 }
 
 section{
@@ -25,9 +25,10 @@ section{
 
 #menu-principal{
     width: 70%;
-    height: 50%;
+    height: 60%;
     flex-direction: column;
     margin-left: 20%;
+    margin-top: 10%;
 }
 
 #menu-principal p{
@@ -45,6 +46,7 @@ section{
     height: 80%;
     max-height: 360px;
 }
+
 
 #ingrese-palabra{
     width: 90%;
@@ -101,11 +103,9 @@ section{
 }
 
 #contenedor-lienzo{
-    /* border: 1px solid black; */
-    
     margin: auto;
     width: 80%;
-    margin-top: 15%;
+    margin-top: 10%;
     margin-bottom: 5%;
 }
 
@@ -150,7 +150,11 @@ ul{
     padding: 0;
     justify-content: center;
     flex-wrap:nowrap;
-     
+    margin: 0;
+}
+
+#letras-no-encontradas{
+    flex-direction: row;
 }
 
 li{
@@ -180,15 +184,15 @@ li{
 }
 
 #teclado-virtual {
-    width: 280px;
+    width: 260px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
 }
 
 .boton-letra {
-    width: 26px;
-    height: 30px;
+    width: 24px;
+    height: 22px;
     margin: 2px;
     color: blue;
     background-color: whitesmoke;
@@ -226,11 +230,23 @@ li{
 
     #contenedor-lienzo{
         margin-top: 5%;
+    }
+
+    .contenedor-main{
+        background-repeat: no-repeat;
     }    
 
     .contenedor-botones{       
         /* margin-left: 10%; */
         flex-direction: row;
+    }
+
+    #teclado-virtual{
+        width: 60%;
+    }
+
+    .boton-letra{
+        width: 10%;
     }
 
     #guardado-palabra{
